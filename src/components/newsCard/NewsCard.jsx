@@ -1,5 +1,7 @@
 import { FaStar, FaRegEye } from "react-icons/fa";
 import { format } from "date-fns";
+import { IoMdShare } from "react-icons/io";
+import { CiBookmark } from "react-icons/ci";
 
 const NewsCard = ({ news }) => {
   const {
@@ -13,8 +15,8 @@ const NewsCard = ({ news }) => {
   } = news;
 
   return (
-    <div className="card bg-base-100 shadow-md border">
-      <div className="flex items-center justify-between px-4 pt-4">
+    <div className="card bg-base-100 shadow-md ">
+      <div className="flex items-center justify-between px-4 pt-4 bg-base-300">
         <div className="flex items-center gap-3">
           <img
             src={author.img}
@@ -24,24 +26,21 @@ const NewsCard = ({ news }) => {
           <div>
             <h2 className="font-semibold">{author.name}</h2>
             <p className="text-sm text-gray-500">
-              {format(new Date(author.published_date), "yyyy-MM-dd")}
+              {format(new Date(news.author.published_date), "dd-MM-yyyy")}
             </p>
           </div>
         </div>
         <div className="text-gray-500">
           <button className="btn btn-ghost btn-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-            </svg>
+          <CiBookmark size={24} />
+          </button>
+          <button className="btn btn-ghost btn-sm">
+          < IoMdShare size={24} />
           </button>
         </div>
       </div>
+      <div className="">
+         <h2 className="card-title text-lg  mt-4 pl-2 font-bold">{title}</h2></div>
 
       <figure>
         <img
@@ -52,11 +51,11 @@ const NewsCard = ({ news }) => {
       </figure>
 
       <div className="card-body">
-        <h2 className="card-title text-lg font-semibold">{title}</h2>
+       
         <p className="text-gray-600 text-sm">
           {details.length > 200 ? details.slice(0, 200) + "..." : details}
         </p>
-        <p className="text-primary font-medium cursor-pointer">Read More</p>
+        <p className="text-secondary font-medium cursor-pointer">Read More</p>
 
         <div className="flex justify-between items-center mt-2 text-sm">
           <div className="flex items-center gap-1 text-orange-500">

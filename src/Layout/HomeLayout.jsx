@@ -18,7 +18,7 @@ const HomeLayout = () => {
                 <Navbar></Navbar>
               </nav>
             </header>
-            <main className='container mx-auto  grid grid-cols-12'>
+            <main className='container mx-auto  grid grid-cols-12 space-x-4'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
